@@ -12,6 +12,7 @@ import {
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { I18nDirective } from './ngx-i18n.directive';
 import { TranslateStore } from '@ngx-translate/core/src/translate.store';
+import { TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 
 const TRANSLATIONS_PATHS = new InjectionToken<string>('translationsPaths');
 
@@ -37,7 +38,7 @@ export function missingTranslationLoggerFactory(): MissingTranslationHandler {
 @NgModule({
   declarations: [I18nDirective],
   imports: [HttpClientModule, NgxTranslateModule],
-  exports: [NgxTranslateModule, I18nDirective]
+  exports: [NgxTranslateModule, I18nDirective, TranslateDirective, TranslatePipe]
 })
 export class I18nModule {
   constructor(translate: TranslateService) {

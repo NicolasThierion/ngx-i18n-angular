@@ -1,12 +1,19 @@
 {
-  "name": "@ngx-i18n/angular-build",
-  "version": "0.0.4",
+  "name": "@ngx-i18n/angular",
+  "version": "0.0.5",
   "license": "MIT",
   "private": true,
   "scripts": {
     "ng": "ng",
     "build": "./node_modules/.bin/ngc -p src/lib/tsconfig.app.json && ./node_modules/.bin/ncp src/lib/package.json dist/package.json",
     "build:watch": "./node_modules/nodemon/bin/nodemon.js -i dist -w src/lib -e ts,json,html,scss --exec \"npm run build\""
+  },
+  "main": "index.js",
+  "peerDependencies": {
+    "@angular/common": "^4.4.1",
+    "@angular/core": "^4.4.1",
+    "@angular/platform-browser": "^4.4.1",
+    "@angular/http": "^4.4.1"
   },
   "devDependencies": {
     "@angular/common": "^4.4.1",

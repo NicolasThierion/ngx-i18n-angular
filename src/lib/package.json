@@ -1,6 +1,6 @@
 {
   "name": "@ngx-i18n/angular",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "private": false,
   "dependencies": {
@@ -10,7 +10,8 @@
   "peerDependencies": {
     "@angular/common": "^4.4.1",
     "@angular/core": "^4.4.1",
-    "@angular/platform-browser": "^4.4.1"
+    "@angular/platform-browser": "^4.4.1",
+    "@angular/http": "^4.4.1"
   },
   "devDependencies": {}
 }

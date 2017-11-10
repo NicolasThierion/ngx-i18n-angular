@@ -7,6 +7,7 @@ var core_2 = require("@ngx-translate/core");
 var http_loader_1 = require("@ngx-translate/http-loader");
 var ngx_i18n_directive_1 = require("./ngx-i18n.directive");
 var translate_store_1 = require("@ngx-translate/core/src/translate.store");
+var core_3 = require("@ngx-translate/core");
 var TRANSLATIONS_PATHS = new core_1.InjectionToken('translationsPaths');
 /* ***
  * Factories used for module DI.
@@ -63,7 +64,7 @@ var I18nModule = /** @class */ (function () {
         { type: core_1.NgModule, args: [{
                     declarations: [ngx_i18n_directive_1.I18nDirective],
                     imports: [http_1.HttpClientModule, core_2.TranslateModule],
-                    exports: [core_2.TranslateModule, ngx_i18n_directive_1.I18nDirective]
+                    exports: [core_2.TranslateModule, ngx_i18n_directive_1.I18nDirective, core_3.TranslateDirective, core_3.TranslatePipe]
                 },] },
     ];
     /** @nocollapse */
