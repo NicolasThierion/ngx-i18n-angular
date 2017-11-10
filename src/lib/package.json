@@ -10,7 +10,6 @@
   "peerDependencies": {
     "@angular/common": "^4.4.1",
     "@angular/core": "^4.4.1",
-    "@angular/router": "^4.4.1",
     "@angular/platform-browser": "^4.4.1"
   },
   "devDependencies": {}
