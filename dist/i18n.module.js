@@ -50,7 +50,6 @@ var I18nModule = /** @class */ (function () {
                     provide: core_2.MissingTranslationHandler,
                     useFactory: missingTranslationLoggerFactory
                 },
-                { provide: core_2.TranslateService, useClass: core_2.TranslateService },
                 { provide: translate_store_1.TranslateStore, useClass: translate_store_1.TranslateStore },
             ]
         };
@@ -64,7 +63,10 @@ var I18nModule = /** @class */ (function () {
         { type: core_1.NgModule, args: [{
                     declarations: [ngx_i18n_directive_1.I18nDirective],
                     imports: [http_1.HttpClientModule, core_2.TranslateModule],
-                    exports: [core_2.TranslateModule, ngx_i18n_directive_1.I18nDirective, core_3.TranslateDirective, core_3.TranslatePipe]
+                    exports: [core_2.TranslateModule, ngx_i18n_directive_1.I18nDirective, core_3.TranslateDirective, core_3.TranslatePipe],
+                    providers: [
+                        { provide: core_2.TranslateService, useClass: core_2.TranslateService },
+                    ]
                 },] },
     ];
     /** @nocollapse */

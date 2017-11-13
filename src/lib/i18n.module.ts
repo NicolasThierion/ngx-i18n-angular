@@ -38,7 +38,10 @@ export function missingTranslationLoggerFactory(): MissingTranslationHandler {
 @NgModule({
   declarations: [I18nDirective],
   imports: [HttpClientModule, NgxTranslateModule],
-  exports: [NgxTranslateModule, I18nDirective, TranslateDirective, TranslatePipe]
+  exports: [NgxTranslateModule, I18nDirective, TranslateDirective, TranslatePipe],
+  providers: [
+    {provide: TranslateService, useClass: TranslateService},
+  ]
 })
 export class I18nModule {
   constructor(translate: TranslateService) {
@@ -65,7 +68,6 @@ export class I18nModule {
           provide: MissingTranslationHandler,
           useFactory: missingTranslationLoggerFactory
         },
-        {provide: TranslateService, useClass: TranslateService},
         {provide: TranslateStore, useClass: TranslateStore},
       ]
     };
