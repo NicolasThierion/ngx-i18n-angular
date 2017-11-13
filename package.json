@@ -1,6 +1,6 @@
 {
   "name": "@ngx-i18n/angular",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "main": "index.js",
   "peerDependencies": {
+    "@ngx-translate/core": "^8.0.0",
     "@angular/common": "^4.4.1",
     "@angular/core": "^4.4.1",
     "@angular/platform-browser": "^4.4.1",
@@ -26,6 +27,7 @@
     "@angular/platform-browser-dynamic": "^4.4.1",
     "@angular/router": "^4.4.1",
     "@ngx-i18n/angular": "./src/lib",
+    "@ngx-translate/core": "^8.0.0",
     "lodash": "^4.17.4",
     "ncp": "^2.0.0",
     "nodemon": "^1.12.1",
