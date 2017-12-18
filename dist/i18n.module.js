@@ -6,7 +6,6 @@ var http_1 = require("@angular/common/http");
 var core_2 = require("@ngx-translate/core");
 var http_loader_1 = require("@ngx-translate/http-loader");
 var ngx_i18n_directive_1 = require("./ngx-i18n.directive");
-var translate_store_1 = require("@ngx-translate/core/src/translate.store");
 var TRANSLATIONS_PATHS = new core_1.InjectionToken('translationsPaths');
 /* ***
  * Factories used for module DI.
@@ -50,26 +49,16 @@ var I18nModule = /** @class */ (function () {
             ]
         };
     };
-    I18nModule.forChild = function (config) {
+    I18nModule.forChild = function () {
         return {
             ngModule: I18nModule,
-            providers: core_2.TranslateModule.forChild(config).providers.concat([
-                { provide: core_2.TranslateLoader,
-                    useFactory: httpLoaderFactory,
-                    deps: [http_1.HttpClient, TRANSLATIONS_PATHS] },
-                {
-                    provide: core_2.MissingTranslationHandler,
-                    useFactory: missingTranslationLoggerFactory
-                },
-                { provide: core_2.TranslateService, useClass: core_2.TranslateService },
-                { provide: translate_store_1.TranslateStore, useClass: translate_store_1.TranslateStore }
-            ])
+            providers: []
         };
     };
     I18nModule.decorators = [
         { type: core_1.NgModule, args: [{
                     declarations: [ngx_i18n_directive_1.I18nDirective],
-                    exports: [core_2.TranslateModule, ngx_i18n_directive_1.I18nDirective]
+                    exports: [ngx_i18n_directive_1.I18nDirective]
                 },] },
     ];
     /** @nocollapse */

@@ -3,14 +3,12 @@ import { InjectionToken, ModuleWithProviders, NgModule, Optional, SkipSelf } fro
 import { HttpClient } from '@angular/common/http';
 
 import {
-  MissingTranslationHandler, MissingTranslationHandlerParams, TranslateDefaultParser, TranslateFakeCompiler,
+  MissingTranslationHandler, MissingTranslationHandlerParams,
   TranslateLoader,
-  TranslateModule, TranslateService, USE_DEFAULT_LANG, USE_STORE, TranslateCompiler,
-  TranslateParser, TranslateModuleConfig
+  TranslateModule, TranslateService, TranslateModuleConfig
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { I18nDirective } from './ngx-i18n.directive';
-import { TranslateStore } from '@ngx-translate/core/src/translate.store';
 
 const TRANSLATIONS_PATHS = new InjectionToken<string>('translationsPaths');
 
@@ -35,7 +33,7 @@ export function missingTranslationLoggerFactory(): MissingTranslationHandler {
  */
 @NgModule({
   declarations: [ I18nDirective ],
-  exports: [ TranslateModule, I18nDirective ]
+  exports: [ I18nDirective ]
 })
 export class I18nModule {
   constructor(@Optional() @SkipSelf() _parentModule?: I18nModule,
@@ -66,21 +64,10 @@ export class I18nModule {
     };
   }
 
-  static forChild(config?: TranslateModuleConfig): ModuleWithProviders {
+  static forChild(): ModuleWithProviders {
     return {
       ngModule: I18nModule,
-      providers: [
-        ...TranslateModule.forChild(config).providers,
-        {provide: TranslateLoader,
-          useFactory: httpLoaderFactory,
-          deps: [HttpClient, TRANSLATIONS_PATHS]},
-        {
-          provide: MissingTranslationHandler,
-          useFactory: missingTranslationLoggerFactory
-        },
-        {provide: TranslateService, useClass: TranslateService},
-        {provide: TranslateStore, useClass: TranslateStore}
-      ]
+      providers: []
     };
   }
 }

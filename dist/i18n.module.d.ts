@@ -1,6 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MissingTranslationHandler, TranslateLoader, TranslateService, TranslateModuleConfig } from '@ngx-translate/core';
+import { MissingTranslationHandler, TranslateLoader, TranslateService } from '@ngx-translate/core';
 export declare function httpLoaderFactory(http: HttpClient, translationsPath: string): TranslateLoader;
 export declare function missingTranslationLoggerFactory(): MissingTranslationHandler;
 /**
@@ -9,5 +9,5 @@ export declare function missingTranslationLoggerFactory(): MissingTranslationHan
 export declare class I18nModule {
     constructor(_parentModule?: I18nModule, _translateService?: TranslateService);
     static forRoot(translationsPath?: string): ModuleWithProviders;
-    static forChild(config?: TranslateModuleConfig): ModuleWithProviders;
+    static forChild(): ModuleWithProviders;
 }
